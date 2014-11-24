@@ -34,5 +34,13 @@ public class Empresa implements Serializable {
     public void setDocumento(Long documento) {
    	 this.documento = documento;
     }
-    
+
+    @java.lang.Override
+    public java.lang.String toString() {
+        return "Empresa{" +
+                "id=" + id +
+                ", nome='" + nome + '\'' +
+                ", documento=" + documento +
+                '}';
+    }
 }
