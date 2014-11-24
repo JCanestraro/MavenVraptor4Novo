@@ -7,6 +7,7 @@ import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.view.Results;
 import br.edu.unidavi.model.entity.Empresa;
 import br.edu.unidavi.model.repository.EmpresaRepository;
+import java.util.Objects;
 import javax.inject.Inject;
 
 @Controller
@@ -46,4 +47,33 @@ public class EmpresaController {
 
         System.out.println("Empresa: " + e.getId() + " - " + e.getNome());
     }
+
+    @Override
+    public int hashCode() {
+        int hash = 3;
+        hash = 89 * hash + Objects.hashCode(this.result);
+        hash = 89 * hash + Objects.hashCode(this.empresaRepository);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final EmpresaController other = (EmpresaController) obj;
+        if (!Objects.equals(this.result, other.result)) {
+            return false;
+        }
+        if (!Objects.equals(this.empresaRepository, other.empresaRepository)) {
+            return false;
+        }
+        return true;
+    }
+    
+    
+    
 }
